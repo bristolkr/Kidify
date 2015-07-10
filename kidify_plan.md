@@ -17,3 +17,22 @@ API for Google Calendar or handroll?
 OmniAuth/Devise
 Responsive for multiple platforms (anticipate users will access from mobile)
 
+Authentication
+devise
+omniauth (google)
+
+Authorization
+handroll simple users
+
+Document handling
+AWS
+Prawn http://prawnpdf.org/api-docs/2.0/
+carrierwave
+
+Photo storage
+carrierwave
+minimagick
+fog-aws
+
+
+
