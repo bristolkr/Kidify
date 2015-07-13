@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar-inverse {
+   background-color: #00263d !important;
+   border-color: #00263d !important;
+ }
+
+ .image-bg-fluid-height {
+   display: block;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
+ }
+
+ .image-bg-fluid-height {
+   background: no-repeat center center scroll;
+ }
+
+ /*@media(max-width:768px) {
+   section {
+     padding-top: 25px;
+     padding-bottom: 25px;
+   }
+ }*/
