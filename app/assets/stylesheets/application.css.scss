@@ -13,10 +13,19 @@
  *= require_tree .
  *= require_self
  */
-
+body {
+  font-family: 'Open Sans Condensed', sans-serif !important;
+}
  .navbar-inverse {
    background-color: #00263d !important;
    border-color: #00263d !important;
+   font-weight: 700;
+   font-size: 14px;
+ }
+
+ .btn-primary {
+   margin-right: 20px !important;
+   font-weight: 700 !important;
  }
 
  .image-bg-fluid-height {
