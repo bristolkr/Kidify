@@ -2,7 +2,7 @@ Devise.setup do |config|
   # config.secret_key = 'cc539a350ff2135fbf0e99754b3567fc73033cdc6eef52df0d0b48801c3b70353d670f73cd31727d17d640fed45a153db1db951a481278fcd8361279ca194aa9'
 
   # ==> Mailer Configuration
-  config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
+  config.mailer_sender = 'no-reply@kidify.com'
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'Devise::Mailer'
