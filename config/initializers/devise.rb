@@ -3,7 +3,7 @@ Devise.setup do |config|
   config.secret_key = 'd88ffabd6eb9f4849f0fdd192b39ae92ea539c89d850f3bf3621b7bbb23858db8117a46452d8fa6dcea2d1374c3def37473d1108040974fdb175655b8699e132'
 
   # ==> Mailer Configuration
-  config.mailer_sender = 'no-reply@kidify.com'
+  config.mailer_sender = 'no-reply@kidify.herokuapp.com'
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'Devise::Mailer'
