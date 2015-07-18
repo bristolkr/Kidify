@@ -37,7 +37,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :invitable
   config.invite_for = 2.weeks
-  config.invitation_limit = 8
+  config.invitation_limit = 10
   config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
   config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :username => nil}
   config.validate_on_invite = true
@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.lock_strategy = :failed_attempts
   config.unlock_keys = [:email]
   config.unlock_strategy = :both
-  config.maximum_attempts = 10
+  config.maximum_attempts = 3
   config.unlock_in = 1.hour
   config.last_attempt_warning = true
 

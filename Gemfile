@@ -16,12 +16,14 @@ gem 'pg'
 gem 'puma'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'google-api-client', :require => 'google/api_client'
+gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'fog-google'
 gem 'mini_magick'
-
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug'

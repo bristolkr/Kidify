@@ -18,10 +18,16 @@ handroll simple users
 
 Document handling
 AWS
-Prawn http://prawnpdf.org/api-docs/2.0/ ?
+Prawn http://prawnpdf.org/api-docs/2.0/ (future?)
 carrierwave
+google drive (api is authorized)
 
 Photo storage
 carrierwave
 minimagick
 fog-aws
+
+photo album
+blog w/comments, tags
+google calendar integration
+google drive integration
