@@ -1,0 +1,40 @@
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <p><%= comment.body %></p>
+      <p class="user">by <%= comment.user %> on <%= comment.created_at.to_s(:short) %></p>
+      <p>
+        <%= link_to "x", post_comment_path(@post, comment), { :method => :delete }  %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_for(@post.comments.new, :url => post_comments_path(@post)) do |f| %>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= post.image %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+      <%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+  <% end -%>

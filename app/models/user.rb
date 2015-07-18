@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :lockable, :timeoutable
+
+  has_many :posts
+  has_many :comments
 end

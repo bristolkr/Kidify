@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+      <div class="col-sm-8 blog-main">
+        <div class="blog-post">
+          <h2 class="blog-post-title"><%= @post.title %></h2>
+          <p class="author">Submitted <%= time_ago_in_words(@post.created_at) %> by <%= @post.user.email %></p>
+          <p class="blog-post-body"><%= @post.body %></p>
+          <p class="blog-post-tags"><strong>Tags: </strong><%= @post.all_tags %></p>
+        </div>
+      </div>
+    </div>
+
+
+<h2>Comments</h2>
+
+  <% @post.comments.each do |comment| %>
+  	<dl class="dl-horizontal">
+	  	<dt>User:</dt>
+	  	<dd><%= comment.user %></dd>
+
+	  	<dt>Comment:</dt>
+	  	<dd><%= comment.body %></dd>
+		</dl>
+  <% end %>
+
+<%= form_for([@post, @comment]) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
