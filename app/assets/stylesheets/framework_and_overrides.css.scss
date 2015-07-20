@@ -1,11 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Site Colors
+// Bone: #e2d7c9
+// Mint: #83c2a3
+// Salmon: #e69a80
+// Cinnamon: #d64820
+// Gold: #ddb93f
+// Navy: #00263d
+
 img {
   @extend .img-responsive;
   margin: 0 auto;
   }
-  
+
 .navbar-brand {
   font-size: inherit;
   }
@@ -31,10 +39,10 @@ main {
   @extend .container;
   background-color: #e2d7c9;
   padding-bottom: 80px;
-  width: 100%;
+  width: auto;
   margin-top: 51px;
   padding-left: 0px;
-  padding-right: 0px;
+  // padding-right: 0px;
 }
 
 section {
