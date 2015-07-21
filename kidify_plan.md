@@ -1,33 +1,35 @@
-- calendar
-- to-dos
-- document storage (eventual free/paid tiers)
-- photo storage (eventual free/paid tiers)
-- behavior logging (think blogging model, commentable)
-
-Amazon AWS storage (photos/docs)
-API for Google Calendar or handroll?
-OmniAuth/Devise
-Responsive for multiple platforms (anticipate users will access from mobile, also future plans to make mobile app)
-
 Authentication
-devise
-omniauth (google)
+------------------
+devise (done)
+Mandrill mailer (done)
 
 Authorization
-handroll simple users
+---------------------
+handroll simple users (done)
 
-Document handling
-AWS
-Prawn http://prawnpdf.org/api-docs/2.0/ (future?)
-carrierwave
-google drive (api is authorized)
+Document repo
+-----------------
+AWS (done)
+carrierwave (done)
+display page
+google drive (api is authorized)(future?)
+Prawn http://prawnpdf.org/api-docs/2.0/ (gem installed and functional)(future?)
 
-Photo storage
-carrierwave
-minimagick
-fog-aws
+Photo album
+------------------
+carrierwave (done)
+minimagick (done)
+fog-aws (done)
+display page
 
-photo album
-blog w/comments, tags
-google calendar integration
-google drive integration
+blog/behavior log
+----------------------
+comments (need to nest comments and associate with user)
+tags (done but nice-to-have: display tag cloud/list)
+
+calendar
+--------------
+icalendar
+events
+display page
+test ability to push to google, iphone calendars

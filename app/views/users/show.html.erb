@@ -1,77 +1,78 @@
 <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><%= link_to 'Dashboard', user_path(current_user) %><span class="sr-only">(current)</span></li>
-            <li><a href="#">Documents</a></li>
-            <li><a href="#">Photos</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Tasks</a></li>
-            <li><%= link_to 'Posts', posts_path %></li>
-            <li><a href="#">MyKidify Settings</a></li>
-          </ul>
-        </div>
-        <div class="row">
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header"><%= @user.name %>'s Kidify</h1>
-            <div class="row today">
-              <div class="col-xs-6 col-sm-3 today">
-                <%= image_tag 'star_cinn.png', size: "100x100", class: "img-responsive" %>
-                <h4>Meet Teacher</h4>
-                <span class="text-muted">3pm, room 110</span>
-              </div>
-              <div class="col-xs-6 col-sm-3 today">
-                <%= image_tag 'star_salmon.png', size: "100x100", class: "img-responsive" %>
-                <h4>Soccer</h4>
-                <span class="text-muted">5pm, YMCA</span>
-              </div>
-              <div class="col-xs-6 col-sm-3 today">
-                <%= image_tag 'star_gold.png', size: "100x100", class: "img-responsive" %>
-                <h4>Science Project</h4>
-                <span class="text-muted">due Friday</span>
-              </div>
-              <div class="col-xs-6 col-sm-3 today">
-                <%= image_tag 'star_mint.png', size: "100x100", class: "img-responsive" %>
-                <h4>Sleepover</h4>
-                <span class="text-muted">Friday Night</span>
-              </div>
-            </div>
-
-          <h2 class="sub-header">Recent Activity</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>User</th>
-                  <th>Activity</th>
-                  <th>Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Kelly</td>
-                  <td>in Posts</td>
-                  <td>July 18, 1:05pm</td>
-                </tr>
-                <tr>
-                  <td>James</td>
-                  <td>in Photos</td>
-                  <td>July 18, 1:05pm</td>
-                </tr>
-                <tr>
-                  <td>Grandma</td>
-                  <td>in Photos</td>
-                  <td>July 18, 1:05pm</td>
-                </tr>
-                <tr>
-                  <td>Jan Davis</td>
-                  <td>in Documents</td>
-                  <td>July 18, 1:05pm</td>
-                </tr>
-              </tbody>
-            </table>
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><%= link_to 'Dashboard', user_path(current_user) %><span class="sr-only">(current)</span></li>
+        <li><a href="#">Documents</a></li>
+        <li><a href="#">Photos</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><%= link_to 'Posts', posts_path %></li>
+        <li><a href="#">MyKidify Settings</a></li>
+      </ul>
+    </div>
+      <div class="col-sm-9 col-md-10 main">
+        <h1 class="page-header"><%= @user.name %>'s Kidify</h1>
+        <div class="row today">
+          <div class="col-xs-6 col-sm-3 today">
+            <%= image_tag 'star_cinn.png', size: "100x100", class: "img-responsive" %>
+            <h4>Meet Teacher</h4>
+            <span class="text-muted">3pm, room 110</span>
           </div>
-        </div>
-      </div>
+          <div class="col-xs-6 col-sm-3 today">
+            <%= image_tag 'star_salmon.png', size: "100x100", class: "img-responsive" %>
+            <h4>Soccer</h4>
+            <span class="text-muted">5pm, YMCA</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 today">
+            <%= image_tag 'star_gold.png', size: "100x100", class: "img-responsive" %>
+            <h4>Science Project</h4>
+            <span class="text-muted">due Friday</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 today">
+            <%= image_tag 'star_mint.png', size: "100x100", class: "img-responsive" %>
+            <h4>Sleepover</h4>
+            <span class="text-muted">Friday Night</span>
+          </div>
+
+      <h2 class="sub-header">Add a Photo or Document</h2>
+      <%= render :partial => '/attachments/form' %>
+
+
+      <h2 class="sub-header">Recent Activity</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Activity</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kelly</td>
+              <td>in Posts</td>
+              <td>July 18, 1:05pm</td>
+            </tr>
+            <tr>
+              <td>James</td>
+              <td>in Photos</td>
+              <td>July 18, 1:05pm</td>
+            </tr>
+            <tr>
+              <td>Grandma</td>
+              <td>in Photos</td>
+              <td>July 18, 1:05pm</td>
+            </tr>
+            <tr>
+              <td>Jan Davis</td>
+              <td>in Documents</td>
+              <td>July 18, 1:05pm</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+</div>

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
+  mount_uploader :attachment, FileUploader
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -15,4 +17,6 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_and_belongs_to_many :events
+  has_many :attachments
 end
