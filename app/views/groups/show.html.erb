@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @group.user %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<div class="page-header">
+  <h1><%= @group.name %></h1>
+</div>
 
 <p>
   <strong>Photo:</strong>
@@ -19,6 +11,57 @@
   <strong>Description:</strong>
   <%= @group.description %>
 </p>
+
+<div class="page-header">
+  <h2>Members for <%= @group.name %></h2>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Email</th>
+          <th>Accepted?</th>
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @group.memberships.each do |membership| %>
+          <% if membership.user != @group.user %>
+            <tr>
+              <td><%= membership.user.name %></td>
+              <td><%= membership.user.email %></td>
+              <td>
+                <%= membership.user.invitation_accepted? ? 'Yes' : 'No' %>
+              </td>
+              <td><%= link_to 'Destroy', [@group, membership], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h3>Add/Invite User</h3>
+    <%= simple_form_for([@group, Membership.new]) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-group">
+        <label>Name</label>
+        <input name="name" type="text" class="form-control" placeholder="First Last">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input name="email" type="email" class="form-control" placeholder="user@example.com">
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Invite" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

@@ -3,7 +3,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
   belongs_to :user
-  has_many :comments
+  belongs_to :group
+  has_many :comments, :dependent => :destroy
   accepts_nested_attributes_for :comments
 
   has_many :taggings

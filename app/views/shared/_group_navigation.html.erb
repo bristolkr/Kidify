@@ -1,0 +1,10 @@
+<ul class="nav nav-sidebar">
+  <%= group_nav_link "Dashboard", user_path, 'users' %>
+  <% unless @group.new_record? %>
+    <%= group_nav_link "Posts",  group_posts_path(@group), 'posts' %>
+    <li class="disabled"><a href="#">Documents</a></li>
+    <li class="disabled"><a href="#">Photos</a></li>
+    <li class="disabled"><a href="#">Calendar</a></li>
+    <li class="disabled"><a href="#">Tasks</a></li>
+  <% end %>
+</ul>

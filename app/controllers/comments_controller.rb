@@ -1,22 +1,30 @@
 class CommentsController < ApplicationController
-  before_action :require_authenticated_user, :only => [:destroy]
+  before_action :authenticate_user!
+  before_filter :set_group
+  before_filter :set_post
+
   def create
-   @post = Post.friendly.find(params[:post_id])
-   @comment = @post.comments.create(comment_params)
-   redirect_to @post, notice: "Comment successful."
+   @comment = @post.comments.create(comment_params.merge(:user => current_user))
+   redirect_to [@group, @post], notice: "Comment successful."
   end
 
   def destroy
-   @post = Post.friendly.find(params[:post_id])
-   @comment = @post.comments.find(params[:id])
+   @comment = @post.comments.where(id: params[:id], :user_id => current_user)
    @comment.destroy
-
-   redirect_to @post, notice: "Comment deleted."
+   redirect_to [@group, @post], notice: "Comment deleted."
   end
 
   private
 
+  def set_group
+    @group = current_user.membered_groups.find(params[:group_id])
+  end
+
+  def set_post
+    @post = @group.posts.friendly.find(params[:post_id])
+  end
+
   def comment_params
-   params.require(:comment).permit(:user, :body)
+   params.require(:comment).permit(:body)
   end
 end

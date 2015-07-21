@@ -1,9 +1,10 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
   def index
-    @groups = Group.all
+    @groups = current_user.membered_groups.all
   end
 
   # GET /groups/1
@@ -12,7 +13,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
+    @group = current_user.groups.new
   end
 
   # GET /groups/1/edit
@@ -21,7 +22,7 @@ class GroupsController < ApplicationController
 
   # POST /groups
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.new(group_params)
 
     if @group.save
       redirect_to @group, notice: 'Group was successfully created.'
@@ -48,11 +49,11 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = current_user.groups.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def group_params
-      params.require(:group).permit(:user_id, :name, :photo, :description)
+      params.require(:group).permit(:name, :photo, :description)
     end
 end

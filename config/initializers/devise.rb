@@ -38,8 +38,8 @@ Devise.setup do |config|
   # ==> Configuration for :invitable
   config.invite_for = 2.weeks
   config.invitation_limit = 10
-  config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
-  config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :username => nil}
+  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
+  config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :name => nil}
   config.validate_on_invite = true
   config.resend_invitation = true
 

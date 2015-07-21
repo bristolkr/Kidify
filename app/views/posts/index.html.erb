@@ -1,12 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h1 class="page-header"><%= @group.name %>'s Posts</h1>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_group_post_path(@group) %>
 
   <% @posts.each do |post| %>
     <div class="row">
       <div class="col-sm-8 blog-main">
         <div class="blog-post">
-          <h2 class="blog-post-title"><%= link_to(post.title, post_path(post)) %></h2>
+          <h2 class="blog-post-title"><%= link_to(post.title, [@group, post]) %></h2>
           <p class="author">Submitted <%= time_ago_in_words(post.created_at) %> by <%= post.user.email %></p>
           <p class="blog-post-body"><%= post.body %></p>
           <p class="blog-post-tags">Tags: <%= post.all_tags %></p>

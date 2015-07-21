@@ -1,58 +1,29 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_group
 
-  # GET /memberships
-  def index
-    @memberships = Membership.all
-  end
-
-  # GET /memberships/1
-  def show
-  end
-
-  # GET /memberships/new
-  def new
-    @membership = Membership.new
-  end
-
-  # GET /memberships/1/edit
-  def edit
-  end
-
-  # POST /memberships
   def create
-    @membership = Membership.new(membership_params)
+    @user = User.where(email: params[:email]).first ||
+            User.invite!({:email => params[:email], :name => params[:name]}, current_user)
+
+    @membership = @group.memberships.new(:user => @user)
 
     if @membership.save
-      redirect_to @membership, notice: 'Membership was successfully created.'
+      redirect_to @group, notice: 'User was successfully added (or invited).'
     else
-      render :new
+      render :index
     end
   end
 
-  # PATCH/PUT /memberships/1
-  def update
-    if @membership.update(membership_params)
-      redirect_to @membership, notice: 'Membership was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /memberships/1
   def destroy
+    @membership = @group.memberships.find(params[:id])
     @membership.destroy
-    redirect_to memberships_url, notice: 'Membership was successfully destroyed.'
+    redirect_to @group, notice: "User's membership was successfully removed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_membership
-      @membership = Membership.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def membership_params
-      params.require(:membership).permit(:group_id, :user_id)
-    end
+  def set_group
+    @group = current_user.groups.find(params[:group_id])
+  end
 end
