@@ -10,7 +10,7 @@
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
             <!-- <a class="thumbnail"> -->
                 <% if @group.attachments.blank? %>
-                  <%= image_tag '/placeholder.png' %>
+                  <%= image_tag 'placeholder.png' %>
                 <% else %>
                   <% @group.attachments.each do |attachment| %>
                     <%= image_tag(attachment.image.url) %>

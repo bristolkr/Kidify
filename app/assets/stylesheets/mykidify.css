@@ -54,6 +54,7 @@
 .today {
   margin-bottom: 30px;
   text-align: center;
+  padding: 0px 0px 0px 15px
 }
 .today h4 {
   margin-bottom: 0;
@@ -76,6 +77,10 @@
 table .table-condensed {
   border: none;
   padding-left: 10px;
+}
+
+div.row.today table {
+  text-align: left;
 }
 .thumb {
     margin-bottom: 30px;
