@@ -15,4 +15,16 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :events
+  has_many :attachments
+  has_many :groups
+  has_many :memberships
+  has_many :membered_groups, :through => :memberships, :source => :group
+  belongs_to :group # to show current dashboard
+
+  before_save :set_default_group
+
+  def set_default_group
+    self.group ||= membered_groups.first
+  end
 end

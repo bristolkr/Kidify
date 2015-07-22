@@ -1,26 +1,22 @@
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
 .navbar-fixed-top {
   border: 0;
 }
 
 .sidebar {
-  display: none;
+  /*display: none;*/
 }
 
 @media (min-width: 768px) {
   .sidebar {
-    position: fixed;
+    /*position: fixed;
     bottom: 0;
     left: 0;
     z-index: 1000;
     display: block;
+    overflow-y: auto;*/
+
     padding: 10px;
     overflow-x: hidden;
-    overflow-y: auto;
     background-color: #83c2a3;
     border-right: 1px solid #00263d;
     border-bottom: 1px solid #00263d;
@@ -47,17 +43,18 @@
 
 @media (min-width: 768px) {
   .main {
-    padding-right: 40px;
-    padding-left: 40px;
+    /*padding-right: 40px;
+    padding-left: 40px;*/
   }
 }
 .main .page-header {
-  margin-top: 0;
+  margin-top: 5px;
 }
 
 .today {
   margin-bottom: 30px;
   text-align: center;
+  padding: 0px 0px 0px 15px
 }
 .today h4 {
   margin-bottom: 0;
@@ -68,4 +65,27 @@
 .today img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.main .sub-header {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+table .table-condensed {
+  border: none;
+  padding-left: 10px;
+}
+
+div.row.today table {
+  text-align: left;
+}
+.thumb {
+    margin-bottom: 30px;
+}
+
+footer {
+  text-align: center;
 }
