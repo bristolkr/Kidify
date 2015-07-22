@@ -1,26 +1,34 @@
 class AttachmentsController < ApplicationController
   before_action :authenticate_user!
-  # def show
-  #   @attachments = @attachments.all
-  # end
+  before_action :set_group
+  before_action :set_, only: [:show]
+
+  def show
+    @attachment = @group.attachments.find(params[:id])
+  end
 
   def new
     @attachment = current_user.attachments.new
   end
 
   def create
-    @attachment = current_user.attachments.new(attachment_params)
-
-    respond_to do |format|
+    @attachment = @group.attachments.new(attachment_params)
      if @attachment.save
-       format.html { redirect_to users_path(current_user), notice: 'File was successfully uploaded.' }
+       redirect_to group_attachments_path, notice: 'File was successfully uploaded.'
      else
-       format.html { render action: 'new' }
+       render :new
      end
-   end
   end
 
   private
+
+  def set_attachment
+    @attachment = @group.attachments.find(params[:id])
+  end
+
+  def set_group
+    @group = current_user.membered_groups.find(params[:group_id])
+  end
 
   def attachment_params
     params.require(:attachment).permit(:caption, :image, :document)

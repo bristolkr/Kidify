@@ -1,8 +1,3 @@
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
 .navbar-fixed-top {
   border: 0;
 }
@@ -69,4 +64,23 @@
 .today img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.main .sub-header {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+table .table-condensed {
+  border: none;
+  padding-left: 10px;
+}
+.thumb {
+    margin-bottom: 30px;
+}
+
+footer {
+  text-align: center;
 }
