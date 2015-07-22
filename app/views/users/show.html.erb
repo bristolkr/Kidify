@@ -1,4 +1,9 @@
-<h1 class="page-header"><%= @user.name %>'s Kidify for <%= @group.name %></h1>
+<h1 class="page-header"><%= @user.name %>'s Kidify
+  <% if @group != nil %>
+    for <%= @group.name %>
+  <% else %>
+    <small>(Please create a group!)</small>
+  <% end %></h1>
 <div class="row today">
   <div class="col-xs-6 col-sm-3 today">
     <%= image_tag 'star_cinn.png', size: "100x100", class: "img-responsive" %>
@@ -20,11 +25,10 @@
     <h4>Sleepover</h4>
     <span class="text-muted">Friday Night</span>
   </div>
-<!-- james edits -->
+
 </div>
 <h1 class="page-header">Recent Activity</h1>
 <div class="row today">
-  <!-- <h2 class="sub-header">Recent Activity</h2> -->
   <div class="table-responsive">
     <table class="table table-condensed">
       <thead>
