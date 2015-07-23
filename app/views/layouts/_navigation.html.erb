@@ -9,9 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <% if user_signed_in? %>
-        <%= link_to 'Kidify', user_path, class: 'navbar-brand' %>
+        <%= link_to(image_tag('kidify_vector_small.png'), user_path, class: 'navbar-brand') %>
       <% else %>
-        <%= link_to 'Kidify', root_path, class: 'navbar-brand' %>
+        <%= link_to(image_tag('kidify_vector_small.png'), root_path, class: 'navbar-brand') %>
       <% end %>
 
     </div>

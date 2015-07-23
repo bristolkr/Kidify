@@ -1,6 +1,7 @@
 <h1 class="page-header"><%= @group.name %>'s Posts</h1>
+<%= link_to 'New Post', new_group_post_path(@group), :class => 'btn btn-primary btn-lg pull-left' %>
 
-<%= link_to 'New Post', new_group_post_path(@group) %>
+<div class="row"></div>
 
   <% @posts.each do |post| %>
     <div class="row">

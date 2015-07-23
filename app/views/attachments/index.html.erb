@@ -4,20 +4,21 @@
 
         <div class="col-lg-12">
             <h1 class="page-header"><%= @group.name %>'s Photos</h1>
-            <%= link_to 'Add Photo', new_group_attachment_path %>
+            <%= link_to 'Add Photo', new_group_attachment_path, :class => 'btn btn-primary btn-lg pull-left' %>
         </div>
+        <div class="row"></div>
 
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <!-- <a class="thumbnail"> -->
                 <% if @group.attachments.blank? %>
-                  <%= image_tag 'placeholder.png' %>
+                  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <%= image_tag 'placeholder.png' %>
+                  </div>
                 <% else %>
                   <% @group.attachments.each do |attachment| %>
-                    <%= image_tag(attachment.image.url) %>
-                    <%= attachment.caption %>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                      <%= image_tag(attachment.image.url) %>
+                      <%= attachment.caption %>
+                    </div>
                   <% end %>
                 <% end %>
-            <!-- </a> -->
-        </div>
     </div>
 </div>

@@ -24,8 +24,7 @@ body {
    font-size: 14px;
  }
 
- .btn-primary {
-   margin-right: 20px !important;
+ .btn-primary, .btn-warning, .btn-danger {
    font-weight: 700 !important;
  }
 
@@ -40,10 +39,3 @@ body {
  .image-bg-fluid-height {
    background: no-repeat center center scroll;
  }
-
- /*@media(max-width:768px) {
-   section {
-     padding-top: 25px;
-     padding-bottom: 25px;
-   }
- }*/
